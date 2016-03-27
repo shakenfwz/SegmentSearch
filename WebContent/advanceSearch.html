@@ -1,0 +1,66 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+  <TITLE>Advanced Search</TITLE>
+   <link rel="stylesheet" href="css/demo.css" type="text/css" media="screen" />
+</HEAD>
+
+<BODY BGCOLOR="#42a2ce">
+<div>
+<H1 ALIGN="CENTER">搜索页面</H1>
+</div>
+
+<div ALIGN="CENTER">
+
+
+<FORM ACTION="advancedSearch"
+      METHOD="GET">
+<table>
+<tr>
+                            <td width="15">&nbsp;</td>
+                            <td width="145">标题:</td>
+                            <td><input name="title" type="text" size="42" maxlength="100" /></td>
+                          </tr>
+						  <tr>
+                            <td width="15">&nbsp;</td>
+                            <td width="145"><div align="left">年份:</div></td>
+                            <td><input name="year" type="text" size="42" maxlength="100" /></td>
+                          </tr>
+						  <tr>
+                            <td width="15">&nbsp;</td>
+                            <td width="145"><div align="left">录入人员:</div></td>
+                            <td><input name="director" type="text" size="42" maxlength="100" /></td>
+                          </tr>
+						  <tr>
+                            <td width="15">&nbsp;</td>
+                            <td width="145"><div align="left">病人姓名:</div></td>
+                            <td><input name="fname" type="text" size="42" maxlength="100" /></td>
+                          </tr>
+						  <tr>
+                            <td width="15">&nbsp;</td>
+                            <td width="145"><div align="left">病人姓名2:</div></td>
+                            <td><input name="lname" type="text" size="42" maxlength="100" /></td>
+                          </tr>
+                           <tr>
+							 <td>  <input type="hidden" name="numOfTimes" value="0"></td>
+							 <td> <input type="hidden" name="number" value=""></td>
+							 <td> <input type="hidden" name="sort" value=""></td>
+							  <td><input type="hidden" name="sortby" value=""></td>
+							  <td><input type="hidden" name="genre" value="">
+							  </td>
+						 </tr>
+
+
+
+
+</table> 
+
+
+  <INPUT class="button green:hover" TYPE="SUBMIT" VALUE="搜索">
+   <input class="button green:hover" value="重置条件" name="reset" type="reset" />
+
+</FORM>
+</div>
+</BODY>
+</HTML>
