@@ -1,8 +1,23 @@
-select * from customers;
+select * from variationSites;
 
-/*drop table patientInfo;*/
-create table patientInfo (ID mediumint not null auto_increment comment 'Ö÷¹Ø¼ü',patientID int comment '²¡Àı±àºÅ',pName varchar(10) comment 'ÊÜ¼ìÕßĞÕÃû',
-Sex char(2) comment 'ÊÜ¼ìÕßĞÔ±ğ',age int comment 'ÊÜ¼ìÕßÄêÁä',ptype tinyint comment 'ÊÜ¼ìÕßÀàĞÍ',
-ClinicalFindings varchar(200) comment 'Ö¢×´±íÏÖ',ClinicalData varchar(200) comment 'ÁÙ´²×ÊÁÏ',PatientRegion varchar(50) comment 'ÊÜ¼ìÕßµØÇø',
-FamilyID int comment 'ÊÜ¼ìÕß¼ÒÏµ±àºÅ',MotherID int comment 'ÊÜ¼ìÕßÄ¸Ç×±àºÅ',MotherName varchar(10) comment 'ÊÜ¼ìÕßÄ¸Ç×ĞÕÃû',MatherAge int comment 'ÊÜ¼ìÕßÄ¸Ç×ÄêÁä',
-FatherID int comment 'ÊÜ¼ìÕß¸¸Ç×±àºÅ',FatherName varchar(10) comment 'ÊÜ¼ìÕß¸¸Ç×ĞÕÃû',FatherAge int comment 'ÊÜ¼ìÕß¸¸Ç×ÄêÁä',primary key (ID)) ;
+/*drop table testPic;*/
+
+create table patientInfo (ID mediumint not null auto_increment comment 'ä¸»é”®',patientID int comment 'ç—…ä¾‹ç¼–å·',pName varchar(10) comment 'å—æ£€è€…å§“å',
+Sex char(2) comment 'å—æ£€è€…æ€§åˆ«',age int comment 'å—æ£€è€…å¹´é¾„',ptype tinyint comment 'å—æ£€è€…ç±»å‹',
+ClinicalFindings varchar(200) comment 'ç—‡çŠ¶è¡¨ç°',ClinicalData varchar(200) comment 'ä¸´åºŠèµ„æ–™',PatientRegion varchar(50) comment 'å—æ£€è€…åœ°åŒº',
+FamilyID int comment 'å—æ£€è€…å®¶ç³»ç¼–å·',MotherID int comment 'å—æ£€è€…æ¯äº²ç¼–å·',MotherName varchar(10) comment 'å—æ£€è€…æ¯äº²å§“å',MatherAge int comment 'å—æ£€è€…æ¯äº²å¹´é¾„',
+FatherID int comment 'å—æ£€è€…çˆ¶äº²ç¼–å·',FatherName varchar(10) comment 'å—æ£€è€…çˆ¶äº²å§“å',FatherAge int comment 'å—æ£€è€…çˆ¶äº²å¹´é¾„',primary key (ID)) ;
+
+create table sampleinfo(sampleID mediumint not null auto_increment comment 'æ ·å“æ¡ç ,ä¸»é”®',sampleName varchar(20) comment 'æ ·æœ¬åç§°',
+testMethod varchar(20) comment 'æ£€æµ‹æ–¹æ³•',sendDoctor varchar(20) comment 'é€æ£€åŒ»ç”Ÿ',sendDate datetime comment 'é€æ£€æ—¥æœŸ',
+receiveDate datetime comment 'æ¥æ”¶æ—¥æœŸ',sampleType varchar(10) comment 'æ ·æœ¬ç±»å‹',collectedDate datetime comment 'é‡‡æ ·æ—¥æœŸ',
+sampleDosage int comment 'æ ·æœ¬å‰‚é‡',patientID int,primary key (sampleID));
+
+create table testPic (picID mediumint not null auto_increment comment 'ä¸»é”®',picType tinyint comment 'å›¾ç‰‡ç±»å‹ï¼ˆFISHå›¾1ï¼Œæ ¸å‹å›¾2ï¼‰',
+delFlag tinyint comment 'åˆ é™¤æ ‡å¿—',upFlag tinyint comment 'ä¸Šä¼ æ ‡å¿—',sampleID int comment 'æ ·å“æ¡ç ,',primary key (picID));
+
+
+create table variationSites(varID mediumint not null auto_increment comment 'ä¸»é”®',	sampleID int  comment 'æ ·å“æ¡ç ,ä¸»é”®',
+Chr char(2), Length int, sampleValue int, Conf float, vComment varchar(100),CNVIndex int,Cytobands varchar(200),
+MarkersNo int,Genes varchar(6000), primary key(varID));
+
