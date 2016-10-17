@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<meta content="charset=gbk">
+<meta charset="utf-8">
 <title>SegmentSearch</title>
 <meta name="viewport"
 	content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
@@ -10,98 +10,53 @@
 <!-- Demo CSS -->
 <link rel="stylesheet" href="css/demo.css" type="text/css"
 	media="screen" />
-	<!-- 
-<link rel="stylesheet" href="flexslider.css" type="text/css"
-	media="screen" />
- -->
-<!-- Modernizr -->
+
 <script src="js/modernizr.js"></script>
 
 </head>
 
 <body>
-			<header role="navigation">
-				<div align="center"><a class="logo" href="http://127.0.0.1" title="Woo"> <img
-					src="images/logo.png" alt="Woo" />
-			    </a>
-			  </div>
-				<h1 align="center">»¶Ó­Ê¹ÓÃ»ùÒòÆ¬¶Î¼ìË÷·ÖÎöÏµÍ³</h1>
-				<h2 align="center">¼òÒ×°æ</h2>
-
-
-				<nav>
-					<FORM ACTION="Login" METHOD="Post" >
-						<table>
-							<tr>
-								<td width="15">&nbsp;</td>
-								<td width="100"><div align="left">ÓÃ»§:</div></td>
-								<td><input name="email" type="text" size="25"
-									maxlength="100" /></td>
-							</tr>
-							<tr>
-								<td width="15">&nbsp;</td>
-								<td width="100"><div align="left">ÃÜÂë:</div></td>
-								<td><input name="pass" type="password" size="25"
-									maxlength="100" /></td>
-							</tr>
-							<tr>
-								<td width="15">&nbsp;</td>
-								<td></td>
-								<td><INPUT class="button green:hover" TYPE="SUBMIT"
-									VALUE="µÇÂ¼"> 
-								<input class="button green:hover"
-									value="ÖØÖÃ" name="reset" type="reset" /></td>
-							</tr>
-					  </table>
-					</FORM>
-				</nav>
-				<FORM>
-					<div align="center">
-					  <input class="button green:hover" type="button" value="ÊµÑéÊÒÈËÔ±µÇÂ¼"
-						onclick="window.location='http://localhost:8080/SegmentSearch/EmployeeLogin.html';">
-					  
-				      </div>
-				</FORM>
-</header>
-
-		<!-- jQuery -->
-		<script src="js/jquery.js"></script>
-		<script>
-            window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')
-        </script>
-
-		<!-- FlexSlider -->
-		<script defer src="jquery.flexslider.js"></script>
-
-		<script type="text/javascript">
-            $(function () {
-                SyntaxHighlighter.all();
-            });
-            $(window).load(function () {
-                $('.flexslider').flexslider({
-                    animation: "slide",
-                    animationLoop: false,
-                    itemWidth: 210,
-                    itemMargin: 5,
-                    pausePlay: true,
-                    start: function (slider) {
-                        $('body').removeClass('loading');
-                    }
-                });
-            });
-        </script>
-
-
-		<!-- Syntax Highlighter -->
-		<script type="text/javascript" src="js/shCore.js"></script>
-		<script type="text/javascript" src="js/shBrushXml.js"></script>
-		<script type="text/javascript" src="js/shBrushJScript.js"></script>
-
-		<!-- Optional FlexSlider Additions -->
-		<script src="js/jquery.easing.js"></script>
-		<script src="js/jquery.mousewheel.js"></script>
-		<script defer src="js/demo.js"></script>
-
+	<header role="navigation">
+		<div align="center"><br></div>
+		<div id="header" align="center">
+			<h1 align="center">æ¬¢è¿ä½¿ç”¨åŸºå› ç‰‡æ®µæ£€ç´¢åˆ†æç³»ç»Ÿ</h1>
+			<h2 align="center">ç®€æ˜“ç‰ˆ</h2>
+		</div>
+			<FORM ACTION="Login" METHOD="Post">
+				<table>
+					<tr>
+						<td width="15">&nbsp;</td>
+						<td width="100">
+							<div align="left">ç”¨æˆ·:</div>
+						</td>
+						<td><input name="email" type="text" size="25" maxlength="100" /></td>
+					</tr>
+					<tr>
+						<td width="15">&nbsp;</td>
+						<td width="100">
+							<div align="left">å¯†ç :</div>
+						</td>
+						<td><input name="pass" type="password" size="25"
+							maxlength="100" /></td>
+					</tr>
+					<tr>
+					</tr>
+					<tr>
+						<td width="15">&nbsp;</td>
+						<td></td>
+						<td><INPUT class="button green:hover" TYPE="SUBMIT"
+							VALUE="ç™»å½•"> <input class="button green:hover" value="é‡ç½®"
+							name="reset" type="reset" /></td>
+					</tr>
+				</table>
+			</FORM>
+		<FORM>
+			<div id="footer" align="center">
+				<input class="button green:hover" type="button" value="å®éªŒå®¤äººå‘˜ç™»å½•"
+					onclick="window.location='http://localhost:8080/SegmentSearch/EmployeeLogin.html';">
+			</div>
+		</FORM>
+	</header>
 </body>
 
 </html>

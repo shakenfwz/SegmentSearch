@@ -2,7 +2,7 @@
   
  <Resource name="jdbc/segmentdb" auth="Container" type="javax.sql.DataSource"
                maxActive="100" maxIdle="30" maxWait="10000" useSSL="false"
-               username="root" password="manager5*" driverClassName="com.mysql.jdbc.Driver"
-               url="jdbc:mysql://localhost:3306/segmentdb" />
+               username="root" password="manager" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://192.168.31.5:3306/segmentdb" />
 
 </Context>

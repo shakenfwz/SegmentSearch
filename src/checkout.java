@@ -88,7 +88,7 @@ public class checkout extends HttpServlet
                   out.println("<BODY BGCOLOR=' #42a2ce'><H3>Thank you </H3></br>");
                   out.println("<div ALIGN='CENTER'>  <a href='http://localhost:8080/SegmentSearch/Home.jsp'> Home </a>|<a href='logout'> Logout </a></div>");
                   String email = (String)session.getAttribute("email");
-                  String query2 = "select id from customers where email ='"+ email +"'";
+                  String query2 = "select id from users where email ='"+ email +"'";
                   int id=0;
                   rs = statement.executeQuery(query2);	 
                   while(rs.next()){

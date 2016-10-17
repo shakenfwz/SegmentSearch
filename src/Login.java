@@ -14,7 +14,11 @@ import javax.sql.DataSource;
 
 public class Login extends HttpServlet
 {
-    public String getServletInfo()
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public String getServletInfo()
     {
        return "Servlet connects to MySQL database and displays result of a SELECT";
     }
@@ -52,10 +56,10 @@ public class Login extends HttpServlet
 	      String pass = request.getParameter("pass");
 	      
 	         /*
-              String query = "SELECT * from customers where email = '" + email + "' and " +
+              String query = "SELECT * from users where email = '" + email + "' and " +
               		"password = '" + pass + "'";
               */
-	      String query = "SELECT * from customers ";
+	      String query = "SELECT * from users ";
               // Perform the query
              rs = statement.executeQuery(query);
 
