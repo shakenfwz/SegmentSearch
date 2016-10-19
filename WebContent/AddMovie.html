@@ -8,32 +8,31 @@
   <div>
     <FORM ACTION="AddMovie" METHOD="GET">
       <div>
-      <ul>
-        <li>受检者姓名(*)：<input name="sampleName" type="text" size="20" value=""/></li> 
-        <li>受检者性别(*)：<select name="sampleSex" size=1 >
-		              <option value="" selected></option>
-		　　                          <option value="女">女</option>
-		              <option value="男">男</option>
-                      <option value="未知">未知</option>
-                      <option value="/">/</option>
-                      </select>
-        <li>受检者年龄(*)：<input name="babyWeek" type="text" size="20" value=""/></li>
-        <li>受检者类型(*)： <select name="sampleType" size=1 >
-		              <option value="" selected></option>
-		　　                          <option value="先证者">先证者</option>
-		              <option value="表型正常者">表型正常者</option>
-                      <option value="疑似者">疑似者</option>
-                      </select>
-                      </li> 
-        
-        <li>受检者电话：<INPUT TYPE="TEXT" NAME="trailer"></li> 
-        <li>受检者地址：<INPUT TYPE="TEXT" NAME="fname"></li>
-        <li>临床表现(*):
-            <div class="subsection">      
-             <textarea name="description" class="box" style="width: 760px; "></textarea>
-            </div>   
-          </li> 
-      </ul>
+        <ul>
+          <li>受检者姓名(*)：<input name="sampleName" type="text" size="20" value="" /></li>
+          <li>受检者性别(*)：<select name="sampleSex" size=1>
+              <option value="" selected></option>
+              <option value="女">女</option>
+              <option value="男">男</option>
+              <option value="未知">未知</option>
+              <option value="/">/</option>
+          </select>
+          <li>受检者年龄(*)：<input name="babyWeek" type="text" size="20" value="" /></li>
+          <li>受检者类型(*)： <select name="sampleType" size=1>
+              <option value="" selected></option>
+              <option value="先证者">先证者</option>
+              <option value="表型正常者">表型正常者</option>
+              <option value="疑似者">疑似者</option>
+          </select>
+          </li>
+          <li>受检者电话：<INPUT TYPE="TEXT" NAME="trailer"></li>
+          <li>受检者地址：<INPUT TYPE="TEXT" NAME="fname"></li>
+          <li>临床表现(*):
+            <div class="subsection">
+              <textarea name="description" class="box" style="width: 760px;"></textarea>
+            </div>
+          </li>
+        </ul>
       </div>
       <div>
         与患者关系：<INPUT TYPE="TEXT" NAME="genre"> 标本编号：<INPUT TYPE="TEXT" NAME="genre">
@@ -55,8 +54,7 @@
         </div>
       </div>
       <CENTER>
-        <INPUT TYPE="SUBMIT" VALUE="保存" align="middle"> <INPUT TYPE="reset" VALUE="重置"
-          align="middle">
+         <INPUT TYPE="SUBMIT" VALUE="保存" align="middle"/><INPUT TYPE="reset" VALUE="重置" align="middle"/>
       </CENTER>
     </FORM>
   </div>
