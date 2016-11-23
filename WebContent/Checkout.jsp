@@ -23,7 +23,6 @@
 				}  
 		
 %>
-</br>
 <div ALIGN="CENTER">
 <FORM ACTION="checkout" METHOD="GET">
 <table>
@@ -63,6 +62,6 @@
 
 </div>
 
-</br></br><div  ALIGN="CENTER"><a href="Home.jsp">Home</a> | <a href="logout">Log Out</a> | <a href="cart?Viewcart=1">My Cart</a></div>
+<div  ALIGN="CENTER"><a href="Home.jsp">Home</a> | <a href="logout">Log Out</a> | <a href="cart?Viewcart=1">My Cart</a></div>
 </BODY>
 </HTML>

@@ -177,13 +177,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>AddMovie</display-name>
-    <servlet-name>AddMovie</servlet-name>
-    <servlet-class>AddMovie</servlet-class>
+    <display-name>AddExample</display-name>
+    <servlet-name>AddExample</servlet-name>
+    <servlet-class>AddExample</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AddMovie</servlet-name>
-    <url-pattern>/AddMovie</url-pattern>
+    <servlet-name>AddExample</servlet-name>
+    <url-pattern>/AddExample</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
