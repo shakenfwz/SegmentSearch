@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>SegmentSearch</display-name>
   <resource-ref>
-   <description>MySQL DataSource</description>
+    <description>MySQL DataSource</description>
     <res-ref-name>jdbc/segmentdb</res-ref-name>
     <res-type>javax.sql.DataSource</res-type>
     <res-auth>Container</res-auth>
   </resource-ref>
+ 
+  <filter>
+    <filter-name>CharactorEncodingFilter</filter-name>
+    <filter-class>filter.CharactorEncodingFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>HtmlFilter</filter-name>
+    <filter-class>filter.HtmlFilter</filter-class>
+  </filter>
+  <!-- 
+    <filter>
+    <description>LoginCheckFilter</description>
+    <display-name>LoginCheckFilter</display-name>
+    <filter-name>LoginCheckFilter</filter-name>
+    <filter-class>filter.LoginCheckFilter</filter-class>
+  </filter>
+   -->
+   
+  <filter-mapping>
+    <filter-name>CharactorEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>HtmlFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!-- 
+  <filter-mapping>
+    <filter-name>LoginCheckFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+   -->
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -19,7 +51,7 @@
     <description></description>
     <display-name>Login</display-name>
     <servlet-name>Login</servlet-name>
-    <servlet-class>Login</servlet-class>
+    <servlet-class>web.client.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
@@ -177,13 +209,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>AddMovie</display-name>
-    <servlet-name>AddMovie</servlet-name>
-    <servlet-class>AddMovie</servlet-class>
+    <display-name>AddExample</display-name>
+    <servlet-name>AddExample</servlet-name>
+    <servlet-class>AddExample</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AddMovie</servlet-name>
-    <url-pattern>/AddMovie</url-pattern>
+    <servlet-name>AddExample</servlet-name>
+    <url-pattern>/AddExample</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -265,4 +297,5 @@
     <servlet-name>pcPrivilege</servlet-name>
     <url-pattern>/pcPrivilege</url-pattern>
   </servlet-mapping>
+
 </web-app>
