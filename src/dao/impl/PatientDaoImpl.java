@@ -10,6 +10,7 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 import utils.JdbcUtils;
 import dao.PatientDao;
 import domain.Patient;
+import domain.User;
 
 public class PatientDaoImpl implements PatientDao {
 
@@ -17,7 +18,7 @@ public class PatientDaoImpl implements PatientDao {
 	public void add(Patient patient) {
 		try {
 			QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-			String sql = "insert into Patient(patientID, pName, Sex, age, ptype, ClinicalFindings, ClinicalData,"
+			String sql = "insert into Patients(patientID, pName, Sex, age, ptype, ClinicalFindings, ClinicalData,"
 					+ " PatientRegion, FamilyID, MotherID, MotherName, MatherAge, FatherID, FatherName, FatherAge) "
 					+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			Object params[] = { patient.getPatientID(), patient.getPName(), patient.getSex(), patient.getAge(),
@@ -33,8 +34,13 @@ public class PatientDaoImpl implements PatientDao {
 
 	@Override
 	public Patient find(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+			String sql = "select * from Patients where Patientid=?";
+			return (Patient) runner.query(sql, id, new BeanHandler(Patient.class));
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	@Override

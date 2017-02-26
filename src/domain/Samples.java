@@ -13,6 +13,7 @@ private String SampleType;
 private Date CollectedDate;
 private int SampleDosage;
 private int PatientID;
+private Date CheckDate;
 
 public int getSampleID() {
 	return SampleID;
@@ -73,5 +74,11 @@ public int getPatientID() {
 }
 public void setPatientID(int patientID) {
 	PatientID = patientID;
+}
+public Date getCheckDate() {
+	return CheckDate;
+}
+public void setCheckDate(Date checkDate) {
+	CheckDate = checkDate;
 }
 }
