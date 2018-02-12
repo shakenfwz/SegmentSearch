@@ -18,16 +18,18 @@
 			<h1 class="form-signin-heading text-center">欢迎使用基因片段检索分析系统</h1>
 			<h2 class="form-signin-heading text-center" >简易版</h2>
 			<label for="inputEmail" class="sr-only">用户名</label> 
-			<input type="text" id="inputUser" name="username" class="form-control"
+			<input type="text" id="inputUser" name="SigninName" class="form-control"
 				placeholder="User Name" required autofocus> 
             <label for="inputPassword" class="sr-only">密码</label> 
-			<input	type="password" id="inputPassword" name="password" class="form-control"	
+			<input	type="password" id="inputPassword" name="SigninPassword" class="form-control"	
 				  placeholder="Password" required>
+		    <!-- 
 			<div class="checkbox">
 				<label> <input type="checkbox" value="remember-me">
 					记住我
 				</label>
-			</div>
+			</div> 
+			-->
 			<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
 			<button class="btn btn-lg btn-primary btn-block" name="reset"
 				type="reset">重置</button>
