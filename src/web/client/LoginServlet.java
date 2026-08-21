@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
 			return;
 		}
 		request.getSession().setAttribute("user", user);
-		request.getRequestDispatcher("/Home.jsp").forward(request, response);
+		request.getRequestDispatcher("/pages/addExample.html").forward(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -2,10 +2,9 @@ package dao.impl;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-
-import utils.JdbcUtils;
 import dao.UserDao;
 import domain.User;
+import utils.JdbcUtils;
 
 public class UserDaoImpl implements UserDao {
 
@@ -35,7 +34,9 @@ public class UserDaoImpl implements UserDao {
 		try {
 			QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
 			String sql = "select * from user where id=?";
-			return (User) runner.query(sql, id, new BeanHandler(User.class));
+			User foundUser; 
+			foundUser = runner.query(sql, new BeanHandler(User.class),id);
+			return foundUser;
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -51,7 +52,7 @@ public class UserDaoImpl implements UserDao {
 			QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
 			String sql = "select * from user where username=? and passwd=?";
 			Object params[] = { username, password };
-			return (User) runner.query(sql, params, new BeanHandler(User.class));
+			return (User) runner.query(sql, new BeanHandler(User.class),params);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

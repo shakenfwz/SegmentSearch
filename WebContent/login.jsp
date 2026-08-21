@@ -23,11 +23,7 @@
             <label for="inputPassword" class="sr-only">密码</label> 
 			<input	type="password" id="inputPassword" name="password" class="form-control"	
 				  placeholder="Password" required>
-			<div class="checkbox">
-				<label> <input type="checkbox" value="remember-me">
-					记住我
-				</label>
-			</div>
+
 			<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
 			<button class="btn btn-lg btn-primary btn-block" name="reset"
 				type="reset">重置</button>
@@ -39,7 +35,9 @@
 		<input class="button green:hover" type="button" value="实验室人员登录"
 			onclick="window.location='${pageContext.request.contextPath }/EmployeeLogin.html';">
 	</div>
-
+<!-- jQuery -->
+  <script type="text/javascript"  src="./js/jquery.js"></script>
+  <script type="text/javascript"  src="./js/jquery.cookie.js"></script>
 </body>
 
 </html>

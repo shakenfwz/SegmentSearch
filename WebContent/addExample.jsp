@@ -64,7 +64,7 @@
         <div class="row"></div>
     </div>
     <div class="container">
-        <form class="form-horizontal" role="form" id="edit" name="edit" ACTION="AddExample" METHOD="POST">
+        <form class="form-horizontal" role="form" id="edit" name="edit" ACTION="${pageContext.request.contextPath}/Sample?op=AddExample" METHOD="POST">
             <div class="row">
                 <!-- 表单第一列 -->
                 <div class="col-md-4">
