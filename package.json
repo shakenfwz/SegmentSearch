@@ -1,0 +1,23 @@
+{
+  "name": "segmentsearch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shakenfwz/SegmentSearch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shakenfwz/SegmentSearch/issues"
+  },
+  "homepage": "https://github.com/shakenfwz/SegmentSearch#readme",
+  "dependencies": {
+    "puppeteer": "^19.11.1",
+    "puppeteer-core": "^19.11.1"
+  }
+}
