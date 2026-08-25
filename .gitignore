@@ -1,2 +1,15 @@
 document
 /.classpath
+
+# Maven 构建输出
+target/
+
+# 本地数据库配置（含密码，勿提交）
+src/main/resources/db.properties
+
+# 编译产物
+*.class
+/基因拷贝数变异管理系统及关联分析工具开发20190517.doc
+/基因拷贝数变异管理系统及关联分析工具开发20190517.pdf
+/logs
+/.vscode

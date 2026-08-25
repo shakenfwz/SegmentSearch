@@ -3,7 +3,9 @@ package domain;
 public class Variationsites {
 	private int VarID;
 	private int SampleID;
-	private byte Chr;
+	private String Chr;
+	private long Start;
+	private long Stop;
 	private int Length;
 	private int SampleValue;
 	private float Conf;
@@ -25,11 +27,23 @@ public class Variationsites {
 	public void setSampleID(int sampleID) {
 		SampleID = sampleID;
 	}
-	public byte getChr() {
+	public String getChr() {
 		return Chr;
 	}
-	public void setChr(byte chr) {
+	public void setChr(String chr) {
 		Chr = chr;
+	}
+	public long getStart() {
+		return Start;
+	}
+	public void setStart(long start) {
+		Start = start;
+	}
+	public long getStop() {
+		return Stop;
+	}
+	public void setStop(long stop) {
+		Stop = stop;
 	}
 	public int getLength() {
 		return Length;

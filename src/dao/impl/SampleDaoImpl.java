@@ -4,13 +4,16 @@ import java.sql.SQLException;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import dao.SampleDao;
 import domain.Samples;
-import domain.User;
 import utils.JdbcUtils;
 
 public class SampleDaoImpl implements SampleDao {
+
+	private static final Logger log = LogManager.getLogger(SampleDaoImpl.class);
 
 	@Override
 	public void add(Samples Samples) {
@@ -24,7 +27,7 @@ public class SampleDaoImpl implements SampleDao {
 					Samples.getCollectedDate(),Samples.getSampleDosage(),Samples.getPatientID(),Samples.getCheckDate()};
 			runner.update(sql, params);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.error("Samples add failed", e);
 			throw new RuntimeException(e);
 		}
 	}
@@ -34,7 +37,7 @@ public class SampleDaoImpl implements SampleDao {
 		try {
 			QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
 			String sql = "select * from Samples where Sampleid=?";
-			return (Samples) runner.query(sql, id, new BeanHandler(Samples.class));
+			return runner.query(sql, new BeanHandler<>(Samples.class), id);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

@@ -2,16 +2,19 @@ package utils;
 
 import javax.imageio.ImageIO;  
 import java.awt.*;  
-import java.awt.image.BufferedImage;  
+import java.awt.image.BufferedImage;
 import java.io.IOException;  
-import java.io.OutputStream;  
-import java.util.Random;  
-  
-/** 
- * 生成验证码图片 
- */  
-public class MakeCertPic {  
-    private static final Color Color = null;  
+import java.io.OutputStream;
+import java.security.SecureRandom;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+/**
+ * 生成验证码图片
+ */
+public class MakeCertPic {
+    private static final Logger log = LogManager.getLogger(MakeCertPic.class);
     private char mapTable[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',  
             'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',  
             'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8',  
@@ -37,16 +40,17 @@ public class MakeCertPic {
         graphics.setColor(new Color(0xDCDCDC));  
         graphics.fillRect(0, 0, width, height);  
         // 边框  
-        graphics.setColor(Color.black);  
+        graphics.setColor(java.awt.Color.black);  
         graphics.drawRect(0, 0, width - 1, height - 1);  
-        // 随机产生验证码  
-        String strEnsure = "";  
-        // 4代表4位验证码  
-        for (int i = 1; i <= 4; i++) {  
-            strEnsure += mapTable[(int) (mapTable.length * Math.random())];  
+        // 随机产生验证码（使用 SecureRandom，防止验证码序列被预测，SEC-12）
+        String strEnsure = "";
+        // 4代表4位验证码
+        SecureRandom secureRandom = new SecureRandom();
+        for (int i = 1; i <= 4; i++) {
+            strEnsure += mapTable[secureRandom.nextInt(mapTable.length)];
         }  
         // 将图形验证码显示在图片中  
-        graphics.setColor(Color.black);  
+        graphics.setColor(java.awt.Color.black);  
         graphics.setFont(new Font("Atlantic Inline", Font.PLAIN, 20));  
         String str = strEnsure.substring(0, 1);  
         graphics.drawString(str, 8, 17);//8:左右距离,17:上下距离  
@@ -56,22 +60,21 @@ public class MakeCertPic {
         graphics.drawString(str, 35, 18);  
         str = strEnsure.substring(3, 4);  
         graphics.drawString(str, 45, 15);  
-        // 随机产生10个干扰点  
-        Random random = new Random();  
-        for (int i = 0; i <= 10; i++) {  
-            int x = random.nextInt(width);  
-            int y = random.nextInt(height);  
-            graphics.drawOval(x, y, 1, 1);  
+        // 随机产生10个干扰点
+        for (int i = 0; i <= 10; i++) {
+            int x = secureRandom.nextInt(width);
+            int y = secureRandom.nextInt(height);
+            graphics.drawOval(x, y, 1, 1);
         }  
         // 释放图形上下文  
         graphics.dispose();  
   
         try {  
             ImageIO.write(image, "JPEG", os);  
-        } catch (IOException e) {  
-            e.printStackTrace();  
-            return "";  
-        }  
+        } catch (IOException e) {
+            log.error("Failed to write captcha image", e);
+            return "";
+        }
         return strEnsure;  
   
     }  

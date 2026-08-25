@@ -1,18 +1,13 @@
 package dao.impl;
 
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanHandler;
 import dao.UserDao;
+import dao.UserParser;
 import domain.User;
 import utils.JdbcUtils;
 
 public class UserDaoImpl implements UserDao {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see dao.impl.UserDao#add(domain.User)
-	 */
 	public void add(User user) {
 		try {
 			QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
@@ -25,34 +20,44 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see dao.impl.UserDao#find(java.lang.String)
-	 */
 	public User find(String id) {
 		try {
 			QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
 			String sql = "select * from user where id=?";
-			User foundUser; 
-			foundUser = runner.query(sql, new BeanHandler(User.class),id);
-			return foundUser;
+			return runner.query(sql, new UserParser(), id);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see dao.impl.UserDao#find(java.lang.String, java.lang.String)
-	 */
 	public User find(String username, String password) {
 		try {
 			QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
 			String sql = "select * from user where username=? and passwd=?";
 			Object params[] = { username, password };
-			return (User) runner.query(sql, new BeanHandler(User.class),params);
+			return runner.query(sql, new UserParser(), params);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Override
+	public User findByName(String username) {
+		try {
+			QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+			String sql = "select * from user where username=?";
+			return runner.query(sql, new UserParser(), username);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Override
+	public void updatePassword(User user) {
+		try {
+			QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+			String sql = "update user set passwd=? where id=?";
+			runner.update(sql, user.getPassword(), user.getId());
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

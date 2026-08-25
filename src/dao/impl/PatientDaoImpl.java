@@ -4,15 +4,16 @@ import java.sql.SQLException;
 import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
-import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import utils.JdbcUtils;
 import dao.PatientDao;
 import domain.Patient;
-import domain.User;
 
 public class PatientDaoImpl implements PatientDao {
+
+	private static final Logger log = LogManager.getLogger(PatientDaoImpl.class);
 
 	@Override
 	public void add(Patient patient) {
@@ -27,7 +28,7 @@ public class PatientDaoImpl implements PatientDao {
 					patient.getMotherAge(), patient.getFatherID(), patient.getFatherName(), patient.getFatherAge() };
 			runner.update(sql, params);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.error("Patient add failed", e);
 			throw new RuntimeException(e);
 		}
 	}
@@ -37,7 +38,7 @@ public class PatientDaoImpl implements PatientDao {
 		try {
 			QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
 			String sql = "select * from Patients where Patientid=?";
-			return (Patient) runner.query(sql, id, new BeanHandler(Patient.class));
+			return runner.query(sql, new BeanHandler<>(Patient.class), id);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

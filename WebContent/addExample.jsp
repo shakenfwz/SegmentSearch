@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./bootstrap/3.3.7/css/bootstrap.min.css">
-    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script type="text/javascript" src="./vendor/jquery/jquery-3.5.1.min.js"></script>
     <script src="./bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
@@ -44,7 +44,7 @@
                         <input class="form-control" type="text" name="username">
                         <input class="form-control" type="password" name="password">
                         <input type="submit" value="登陆">
-                        <input type="button" value="注册" onclick="javascript:window.parent.body.location.href='${pageContext.request.contextPath }/client/register.jsp'">
+                        <input type="button" value="注册" onclick="javascript:window.parent.body.location.href='${pageContext.request.contextPath }/login.jsp'">
                     </form>
                 </c:if>
                 <c:if test="${user!=null }">

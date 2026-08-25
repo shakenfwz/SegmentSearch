@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./bootstrap/3.3.7/css/bootstrap.min.css">
-<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./vendor/jquery/jquery-3.5.1.min.js"></script>
 <script src="./bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
