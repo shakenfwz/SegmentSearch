@@ -122,7 +122,34 @@ db.properties（classpath）  >  JNDI 数据源（jdbc/segmentdb）
 cp target/SegmentSearch.war $CATALINA_HOME/webapps/
 ```
 
-### 5.2 启动 Tomcat
+### 5.2 配置静态资源编码（Windows 必做）
+
+在 Tomcat `conf/web.xml` 中为 `default` Servlet 添加 `fileEncoding` 参数：
+
+```xml
+<servlet>
+    <servlet-name>default</servlet-name>
+    <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+    <init-param>
+        <param-name>debug</param-name>
+        <param-value>0</param-value>
+    </init-param>
+    <init-param>
+        <param-name>listings</param-name>
+        <param-value>false</param-value>
+    </init-param>
+    <!-- 新增：静态资源文件编码 -->
+    <init-param>
+        <param-name>fileEncoding</param-name>
+        <param-value>UTF-8</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+```
+
+> **为什么必须配置**：`fileEncoding` 默认取 JVM 平台编码。在中文 Windows 上（Java 17 及以下）平台编码是 GBK，Tomcat 读取 UTF-8 静态页面时会用 GBK 解码、再按响应字符集（UTF-8）写出，导致所有中文乱码（Linux 上默认 UTF-8 则无此问题）。
+
+### 5.3 启动 Tomcat
 
 ```bash
 # Linux
@@ -132,7 +159,7 @@ $CATALINA_HOME/bin/startup.sh
 $CATALINA_HOME\bin\startup.bat
 ```
 
-### 5.3 验证部署
+### 5.4 验证部署
 
 ```bash
 # 检查应用是否启动
@@ -141,9 +168,13 @@ curl -I http://localhost:8080/SegmentSearch/login.jsp
 
 # 检查安全响应头
 curl -I http://localhost:8080/SegmentSearch/login.jsp | grep -E "X-Frame-Options|Content-Security-Policy|X-Content-Type-Options"
+
+# 检查中文是否正常（响应头应带 charset=UTF-8）
+curl -I http://localhost:8080/SegmentSearch/pages/login.html | grep Content-Type
+# 期望: Content-Type: text/html;charset=UTF-8
 ```
 
-### 5.4 访问地址
+### 5.5 访问地址
 
 | 页面 | URL |
 |------|-----|
@@ -301,6 +332,7 @@ head -c 5 file.pdf | xxd
 - [ ] `db.properties` 已配置（或 JNDI 数据源已配置）
 - [ ] 默认密码 `admin/admin` 已修改
 - [ ] Tomcat 已部署 WAR 包
+- [ ] Tomcat `conf/web.xml` 已为 default Servlet 配置 `fileEncoding=UTF-8`（Windows 中文系统必做）
 - [ ] 安全响应头已验证（`curl -I` 检查）
 - [ ] CSRF 防护已验证（无 Token 的 POST 返回 403）
 - [ ] 生产环境已启用 HTTPS

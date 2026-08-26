@@ -1,21 +1,72 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<HEAD>
-  <TITLE>实验室员工登录</TITLE>
-</HEAD>
+<!DOCTYPE html>
+<html lang="zh-CN">
 
-<BODY BGCOLOR="#FDF5E6">
-<H1 ALIGN="CENTER">登录界面</H1>
+<head>
 
-<FORM ACTION="EmployeeLogin"
-      METHOD="POST">
- 员工: <INPUT TYPE="TEXT" NAME="email"><BR>
- 密码: <INPUT TYPE="PASSWORD" NAME="pass"><BR>
-  <CENTER>
-    <INPUT TYPE="SUBMIT" VALUE="登录">
-  </CENTER>
-</FORM>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
 
-</BODY>
-</HTML>
+<title>人染色体管理数据库</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- MetisMenu CSS -->
+<link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="dist/css/sb-admin-2.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">实验室员工登录</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" action="EmployeeLogin" method="post">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" placeholder="员工账号" name="email" required autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="password" placeholder="密码" name="pass" required>
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">登录</button>
+                            </fieldset>
+                        </form>
+                        <div class="text-center">
+                            <a href="pages/index.html" class="text-muted">返回系统首页</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery-3.5.1.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
